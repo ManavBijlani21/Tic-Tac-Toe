@@ -15,3 +15,16 @@ def display_board(board):
     print('  ',' |','  ',' |','  ')
     
 
+#Taking choice from the user
+def user_choice():
+    choice=False
+    while choice not in ['X','O']:
+        choice=input('Player 1:Do you want to take X or O:')
+        if choice not in ['X','O']:
+            print("Please enter a valid choice!")
+    
+    if choice=='X':
+        return ('X','O')
+    else:
+        return ('O','X')
+
