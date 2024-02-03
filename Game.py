@@ -1,5 +1,7 @@
 #For displaying the board
 from IPython.display import clear_output
+import random
+
 def display_board(board):
     clear_output()
     print('  ',' |','  ',' |','  ')
@@ -42,4 +44,20 @@ def win_check(board,mark):
         pass
     
     return win 
+
+#Checking which user goes first
+def first_move():
+    lst=['Player 1','Player 2']
+    #Using the randint function of the random library to make a random choice
+    rand=random.randint(0,1)
+    return lst[rand]
+
+
+#To check if the given position is empty
+def space_check(board,position):
+    if board[position]=='  ':
+        return True
+    else:
+        return False
+
 
