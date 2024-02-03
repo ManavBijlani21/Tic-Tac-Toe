@@ -82,3 +82,22 @@ def position_choice():
         if not(space_check(board,marker)):
             print("Please enter a position which is not yet filled..")
     return marker
+
+
+#Placing the marker on the board
+def place_marker(board,position,mark):
+    board[position]=' '+mark
+
+
+#Asking for a replay from the user
+def replay():
+    to_continue=False
+    while to_continue not in ['Y','N']:
+        to_continue=input("Do you want to play more(Y/N)?")
+        if to_continue not in ['Y','N']:
+            print("Please enter a valid choice!")
+    
+    if to_continue=='Y':
+        return True
+    else:
+        return False
