@@ -61,3 +61,11 @@ def space_check(board,position):
         return False
 
 
+#To check whether the board is full or not
+def full_board_check(board):
+    for i in range(1,10):
+        if space_check(board,i):
+            return False
+    return True
+
+
