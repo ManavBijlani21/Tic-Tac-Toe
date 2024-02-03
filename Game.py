@@ -69,3 +69,16 @@ def full_board_check(board):
     return True
 
 
+#Taking the position where marker needs to be placed
+def position_choice():
+    marker=0
+    while marker not in [i for i in range(1,10)] or not(space_check(board,marker)):
+        marker=int(input("Choose a position where you want to place your mark(1-9):"))
+
+        #Checking if the given input is valid
+        if marker not in [i for i in range(1,10)]:
+            print("Please enter your marker in the given range!")
+            continue
+        if not(space_check(board,marker)):
+            print("Please enter a position which is not yet filled..")
+    return marker
