@@ -28,3 +28,18 @@ def user_choice():
     else:
         return ('O','X')
 
+#Checking the win condition
+def win_check(board,mark):
+    win=False
+    #Conditions to check every possible winnning condition
+    if (board[1]==board[2]==board[3]==' '+mark) or (board[4]==board[5]==board[6]==' '+mark) or (board[7]==board[8]==board[9]==' '+mark):
+        win=True
+    elif (board[1]==board[4]==board[7]==' '+mark) or (board[2]==board[5]==board[8]==' '+mark) or (board[3]==board[6]==board[9]==' '+mark):
+        win=True
+    elif (board[1]==board[5]==board[9]==' '+mark) or (board[3]==board[5]==board[7]==' '+mark):
+        win=True
+    else:
+        pass
+    
+    return win 
+
