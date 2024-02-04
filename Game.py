@@ -70,7 +70,7 @@ def full_board_check(board):
 
 
 #Taking the position where marker needs to be placed
-def position_choice():
+def position_choice(board):
     marker=0
     while marker not in [i for i in range(1,10)] or not(space_check(board,marker)):
         marker=int(input("Choose a position where you want to place your mark(1-9):"))
@@ -103,52 +103,3 @@ def replay():
         return False
     
 
-#This segment of the code implements the game logic by integrating all the declared functions and printing the desired output
-print('Welcome to Tic Tac Toe!')
-to_continue=True
-
-while to_continue:
-    #Declaring an empty board
-    board=['  ']*10
-    display_board(board)
-    player1_mark,player2_mark=user_choice()
-    move=first_move()
-    print(move+' goes first')
-    game_on=True
-    while game_on:
-        if move=='Player 1':
-            print('Turn of Player 1')
-            position=position_choice()
-            place_marker(board,position,player1_mark)
-            display_board(board)
-            #Checking if Player 1 wins the game
-            if win_check(board,player1_mark):
-                print('Congratulations!!!Player 1 has won')
-                game_on=False
-            else:
-                if full_board_check(board):
-                    print("The game is tied!")
-                    game_on=False
-                #If none of the above condition satisfied, set the move to Player 2
-                else:
-                    move='Player 2'
-        else:
-            print('Turn of Player 2')
-            position=position_choice()
-            place_marker(board,position,player2_mark)
-            display_board(board)
-            if win_check(board,player2_mark):
-                print('Congratulations!!!Player 2 has won')
-                game_on=False
-            else:
-                #If the board is full and no one wins, print that the game is tied
-                if full_board_check(board):
-                    print("The game is tied!")
-                    game_on=False
-                else:
-                    move='Player 1'
-    #Option for game replay
-    to_continue=replay()
-
-print('Hope you enjoyed the game!')
-print('Thanks for coming :-)')
